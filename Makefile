@@ -6,7 +6,7 @@
 #    By: fd-agnes <fd-agnes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/05 17:51:37 by fd-agnes          #+#    #+#              #
-#    Updated: 2021/05/05 18:06:29 by fd-agnes         ###   ########.fr        #
+#    Updated: 2021/05/08 16:58:26 by fd-agnes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ NAME2 = push_swap
 SRCS =	checker.c \
 		./minilibft/ft_split.c \
 		./minilibft/ft_itoa.c \
-
+		./minilibft/ft_atoi.c \
+		./minilibft/ft_isalpha.c \
+		./minilibft/ft_isdigit.c \
+		./utils/utils.c \
+		./utils/utils2.c \
 
 OBJS = $(SRCS:.c=.o)
 

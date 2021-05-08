@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fd-agnes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fd-agnes <fd-agnes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:43:21 by fd-agnes          #+#    #+#             */
-/*   Updated: 2021/01/19 16:51:33 by fd-agnes         ###   ########.fr       */
+/*   Updated: 2021/05/08 17:05:11 by fd-agnes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		**occurences(char const *s, char c, size_t *size)
+static char	**occurences(char const *s, char c, size_t *size)
 {
 	char	*pt;
 	int		flag;
