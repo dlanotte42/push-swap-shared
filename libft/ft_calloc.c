@@ -1,0 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/14 10:48:08 by gcarbone          #+#    #+#             */
+/*   Updated: 2021/04/14 16:55:30 by gcarbone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*s;
+
+	s = (void *)malloc(count * size);
+	if (s)
+		ft_bzero(s, count * size);
+	return (s);
+}
