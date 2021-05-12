@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op.c                                               :+:      :+:    :+:   */
+/*   operation00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:41:54 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/10 12:16:58 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/12 18:09:07 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "op.h"
+#include "includes/main.h"
 
 void	sx(t_stack	*stack)
 {
 	t_list	*first;
 	t_list	*second;
-	int tmp;
+	int		tmp;
 
 	first = stack->first;
 	if (first != NULL && first->next != NULL)
@@ -32,7 +32,7 @@ void	sx(t_stack	*stack)
 		stack->arr[stack->length - 2] = tmp;
 		tmp = stack->length - 1 - stack->pos;
 		if (tmp == 0 || tmp == 1)
-			stack->pos = stack->length - 1  - (1 - tmp);
+			stack->pos = stack->length - 1 - (1 - tmp);
 	}
 	printf("\nswap");
 }
@@ -51,7 +51,7 @@ void	px(t_stack	*a, t_stack	*b)
 void	rx(t_stack	*stack)
 {
 	t_list	*tmp;
-	int 	i;
+	int		i;
 	int		top;
 
 	if (stack->first == NULL || stack->first->next == NULL)
@@ -72,10 +72,10 @@ void	rx(t_stack	*stack)
 
 void	rrx(t_stack	*stack)
 {
-	t_list *last;
-	int 	i;
+	t_list	*last;
+	int		i;
 	int		bottom;
-	
+
 	if (stack->first == NULL || stack->first->next == NULL)
 		return ;
 	last = stack->first;

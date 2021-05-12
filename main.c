@@ -1,13 +1,23 @@
-#include "utilities.h"
-# include "op2.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/12 18:08:01 by dlanotte          #+#    #+#             */
+/*   Updated: 2021/05/12 18:08:22 by dlanotte         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(int argc, char **argv)
+#include "includes/main.h"
+
+int	main(int argc, char **argv)
 {
 	int		res;
 	t_ps	*ps;
-	int 	i;
-	t_list *node;
+	int		i;
+	t_list	*node;
 
 	ps = check_args(argc, argv, &res);
 	if (res)
@@ -31,4 +41,5 @@ int main(int argc, char **argv)
 		print_stacks(&ps->a, &ps->b, "reverse rotate b");
 	}
 	remove_ps(ps);
+	return (0);
 }

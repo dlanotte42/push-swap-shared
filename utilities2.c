@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utilities2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:12:42 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/12 15:47:52 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/12 18:07:35 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "utilities2.h"
+#include "includes/main.h"
 
 void	reverse(t_list	*node, t_list **first, t_list **last)
 {

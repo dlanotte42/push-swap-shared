@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 10:19:53 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/04 15:42:03 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/12 18:08:25 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-#include "utilities.h"
-#include "op2.h"
+#ifndef MAIN_H
+# define MAIN_H
 
-
+# include "struct.h"
+# include "operation.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include "../libft/libft.h"
+# include "utilities.h"
 
 #endif

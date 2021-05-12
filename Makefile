@@ -12,8 +12,8 @@ CFLAGS = -Wall -Wextra -Werror -g
 SRC =	push_swap.c \
 		utilities.c \
 		utilities2.c \
-		op.c \
-		op2.c \
+		operation00.c \
+		operation01.c \
 
 #SRCG = 	$(wildcard $(GNL)*.c)
 

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/12 17:03:11 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/12 18:09:41 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "includes/main.h"
 
 void	move_to_top(t_stack *stack, int stack_i)
 {
-	int move;
-	int rxf;
+	int	move;
+	int	rxf;
 
 	if (stack_i + 1 < stack->length - stack_i - 1)
 		move = stack_i + 1;
@@ -32,9 +32,9 @@ void	move_to_top(t_stack *stack, int stack_i)
 	}
 }
 
-int		fval_index(int *arr, int len, int val)
+int	fval_index(int *arr, int len, int val)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len && arr[i] != val)
@@ -56,8 +56,7 @@ void	put_in_b(t_ps *ps, int stack_i)
 	px(&ps->b, &ps->a);
 }
 
-
-int		find_min_index(t_stack *stack)
+int	find_min_index(t_stack *stack)
 {
 	int	i;
 	int	imin;
