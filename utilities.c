@@ -35,7 +35,8 @@ int	pop(t_stack *stack)
 
 t_ps	*init_ps(int size)
 {
-	t_ps *ps;
+	t_ps	*ps;
+	int		i;
 
 	ps = (t_ps *) malloc(sizeof(t_ps));
 	if (ps != NULL)
@@ -64,6 +65,12 @@ t_ps	*init_ps(int size)
 		ps->sorted = (int *) malloc(sizeof(int) * size);
 		ps->a.sorted = (int *) malloc(sizeof(int) * size);
 		ps->b.sorted = (int *) malloc(sizeof(int) * size);
+		ps->a.sequences = (t_seq **) malloc(sizeof(t_seq *) * (size + 1));
+		ps->a.sequences[size] = NULL;
+		i = -1;
+		while (++i < size)
+			ps->a.sequences[i] = (t_seq *) malloc(sizeof(t_seq));
+		ps->a.n_seq = 0;
 	}
 	return (ps);
 }

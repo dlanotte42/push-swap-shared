@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:45:09 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/10 17:16:06 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/12 14:15:41 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 # define UTILITIES2_H
 #include <stdlib.h>
 #include <stdio.h>
+
 typedef struct s_list
 {
 	int		val;
 	struct	s_list	*next;
 }				t_list;
 
+typedef struct s_seq
+{
+	int	stack_i;
+	int	length;
+}				t_seq;
+
 typedef struct s_stack
 {
 	t_list	*first;
 	t_list	*last;
+	t_seq	**sequences;
 	int		*sorted;
 	int		*arr;
 	int		*arr2;
@@ -34,6 +42,7 @@ typedef struct s_stack
 	int		pivot;
 	int		ipivot;
 	int		pos;
+	int		n_seq;
 }				t_stack;
 
 typedef struct s_ps
@@ -46,4 +55,5 @@ typedef struct s_ps
 
 void	reverse(t_list	*node, t_list **first, t_list **last);
 void	print_stacks(t_stack *a, t_stack *b, char *str);
+void	ft_sort_sequences(t_seq **tab, int size);
 #endif
