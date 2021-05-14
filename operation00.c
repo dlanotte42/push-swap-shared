@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:41:54 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/12 18:09:07 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/14 11:26:10 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	px(t_stack	*a, t_stack	*b)
 	printf("\npush");
 }
 
-void	rx(t_stack	*stack)
+void	rx(t_stack	*stack, int flag)
 {
 	t_list	*tmp;
 	int		i;
@@ -67,10 +67,11 @@ void	rx(t_stack	*stack)
 		stack->arr[i] = stack->arr[i - 1];
 	stack->arr[0] = top;
 	stack->pos = (stack->pos + 1) % stack->length;
-	printf("\nrotate");
+	if (flag)
+		printf("\nrotate");
 }
 
-void	rrx(t_stack	*stack)
+void	rrx(t_stack	*stack, int flag)
 {
 	t_list	*last;
 	int		i;
@@ -91,5 +92,6 @@ void	rrx(t_stack	*stack)
 		stack->arr[i] = stack->arr[i + 1];
 	stack->arr[stack->length - 1] = bottom;
 	stack->pos = (stack->length + stack->pos - 1) % stack->length;
-	printf("\nreverse rotate");
+	if (flag)
+		printf("\nreverse rotate");
 }

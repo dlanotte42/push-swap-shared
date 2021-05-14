@@ -62,15 +62,24 @@ t_ps	*init_ps(int size)
 		ps->a.arr = (int *) malloc(sizeof(int) * size);
 		ps->a.arr2 = (int *) malloc(sizeof(int) * size);
 		ps->b.arr = (int *) malloc(sizeof(int) * size);
+		ps->b.arr2 = (int *) malloc(sizeof(int) * size);
 		ps->sorted = (int *) malloc(sizeof(int) * size);
 		ps->a.sorted = (int *) malloc(sizeof(int) * size);
+		ps->a.ssmin = 0;
+		ps->b.ssmin = 0;
 		ps->b.sorted = (int *) malloc(sizeof(int) * size);
 		ps->a.sequences = (t_seq **) malloc(sizeof(t_seq *) * (size + 1));
+		ps->b.sequences = (t_seq **) malloc(sizeof(t_seq *) * (size + 1));
 		ps->a.sequences[size] = NULL;
+		ps->b.sequences[size] = NULL;
 		i = -1;
 		while (++i < size)
+		{
 			ps->a.sequences[i] = (t_seq *) malloc(sizeof(t_seq));
+			ps->b.sequences[i] = (t_seq *) malloc(sizeof(t_seq));
+		}
 		ps->a.n_seq = 0;
+		ps->b.n_seq = 0;
 	}
 	return (ps);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   STRUCT.h                                           :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:45:09 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/12 18:08:27 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/13 11:34:09 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_stack
 	int				*sorted;
 	int				*arr;
 	int				*arr2;
+	int				ssmin;
 	int				length;
 	int				left;
 	int				right;
