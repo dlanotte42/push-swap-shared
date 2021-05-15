@@ -6,11 +6,23 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:12:42 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 11:50:56 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:24:32 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/main.h"
+
+int	fval_index(int *arr, int len, int val)
+{
+	int	i;
+
+	i = 0;
+	while (i < len && arr[i] != val)
+		i++;
+	if (i < len)
+		return (i);
+	return (-1);
+}
 
 void	reverse(t_list	*node, t_list **first, t_list **last)
 {

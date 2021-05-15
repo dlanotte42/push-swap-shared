@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:41:54 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/14 11:26:10 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:53:20 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,24 @@ void	sx(t_stack	*stack)
 		if (tmp == 0 || tmp == 1)
 			stack->pos = stack->length - 1 - (1 - tmp);
 	}
-	printf("\nswap");
+	if (stack->sname)
+		ft_putstr_fd("sb\n", 1);
+	else
+		ft_putstr_fd("sa\n", 1);
 }
 
-void	px(t_stack	*a, t_stack	*b)
+void	px(t_stack *one, t_stack *two)
 {
 	int	value;
 
-	if (b->first == NULL)
+	if (two->first == NULL)
 		return ;
-	value = pop(b);
-	push(a, value);
-	printf("\npush");
+	value = pop(two);
+	push(one, value);
+	if (one->sname)
+		ft_putstr_fd("pb\n", 1);
+	else
+		ft_putstr_fd("pa\n", 1);
 }
 
 void	rx(t_stack	*stack, int flag)
@@ -67,8 +73,10 @@ void	rx(t_stack	*stack, int flag)
 		stack->arr[i] = stack->arr[i - 1];
 	stack->arr[0] = top;
 	stack->pos = (stack->pos + 1) % stack->length;
-	if (flag)
-		printf("\nrotate");
+	if (flag && stack->sname)
+		ft_putstr_fd("rb\n", 1);
+	else if (flag && !stack->sname)
+		ft_putstr_fd("ra\n", 1);
 }
 
 void	rrx(t_stack	*stack, int flag)
@@ -92,6 +100,8 @@ void	rrx(t_stack	*stack, int flag)
 		stack->arr[i] = stack->arr[i + 1];
 	stack->arr[stack->length - 1] = bottom;
 	stack->pos = (stack->length + stack->pos - 1) % stack->length;
-	if (flag)
-		printf("\nreverse rotate");
+	if (flag && stack->sname)
+		ft_putstr_fd("rrb\n", 1);
+	else if (flag && !stack->sname)
+		ft_putstr_fd("rra\n", 1);
 }

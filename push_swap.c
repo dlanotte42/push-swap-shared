@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 13:11:05 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/15 16:11:02 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,6 @@ void	move_to_top(t_stack *stack, int stack_i)
 			rrx(stack, 1);
 		move--;
 	}
-}
-
-int	fval_index(int *arr, int len, int val)
-{
-	int	i;
-
-	i = 0;
-	while (i < len && arr[i] != val)
-		i++;
-	if (i < len)
-		return (i);
-	return (-1);
 }
 
 int	find_min_index(t_stack *stack)
@@ -360,7 +348,7 @@ int		main(int argc, char **argv)
 		set_limits(ps->size, &nchunk, &chunk_size);
 		//print_stacks(&ps->a, &ps->b, "INIT");
 		chunk_sort(ps, nchunk - 1, chunk_size);
-		print_stacks(&ps->a, &ps->b, "SORTED?");
+		//print_stacks(&ps->a, &ps->b, "SORTED?");
 	}
 	remove_ps(ps);	
 }

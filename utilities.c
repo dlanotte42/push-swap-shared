@@ -46,6 +46,8 @@ t_ps	*init_ps(int size)
 		ps->b.last = NULL;
 		ps->size = size;
 		ps->a.length = 0;
+		ps->a.sname = 0;
+		ps->b.sname = 1;
 		ps->b.length = 0;
 		ps->a.pos = 0;
 		ps->b.pos = 0;
@@ -117,6 +119,7 @@ t_ps	*ft_error(int argc, char **argv, int *error)
 		while (!*error && ++i < argc)
 		{
 			num = ft_atoi(args[i], error);
+			*error = (*error || fval_index(ps->a.arr, ps->a.length, num) != -1);
 			if (!*error)
 				push(&ps->a, num);
 		}
@@ -132,10 +135,10 @@ t_ps	*check_args(int argc, char **argv, int *error)
 
 	ps = ft_error(argc, argv, error);
 	if (*error)
-		write(1, "Error\n", 6);
+		ft_putstr_fd("Error\n", 2);
 	else
 	{
-		if (argc > 2)
+		if (ps->a.length > 1)
 			reverse(ps->a.first, &ps->a.first, &ps->a.last);
 		i = -1;
 		ptr = ps->a.first;

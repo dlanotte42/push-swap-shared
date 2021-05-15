@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:45:09 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 11:50:16 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:48:06 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 	int				*arr;
 	int				length;
 	int				pos;
+	int				sname;
 }				t_stack;
 
 typedef struct s_ps
