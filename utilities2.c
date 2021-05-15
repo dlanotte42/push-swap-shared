@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:12:42 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/13 15:23:03 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:50:56 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,14 @@ void	print_stacks(t_stack *a, t_stack *b, char *str)
 	printf("\n");
 }
 
-void	ft_swap_sequence(t_seq **tab, int i, int j)
-{
-	t_seq	*c;
-
-	c = tab[i];
-	tab[i] = tab[j];
-	tab[j] = c;
-}
-
-void	ft_sort_sequences(t_seq **tab, int size)
+int	ft_table_len(char **table)
 {
 	int	i;
-	int	j;
 
-	if (size <= 1)
-		return ;
-	ft_sort_sequences(tab, size - 1);
-	i = size - 1;
-	j = i - 1;
-	while (j >= 0 && tab[i]->length > tab[j]->length)
-	{
-		ft_swap_sequence(tab, i, j);
-		i--;
-		j--;
-	}
+	if (!table)
+		return (0);
+	i = 0;
+	while (table[i])
+		i++;
+	return (i);
 }

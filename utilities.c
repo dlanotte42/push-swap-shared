@@ -36,7 +36,6 @@ int	pop(t_stack *stack)
 t_ps	*init_ps(int size)
 {
 	t_ps	*ps;
-	int		i;
 
 	ps = (t_ps *) malloc(sizeof(t_ps));
 	if (ps != NULL)
@@ -50,36 +49,9 @@ t_ps	*init_ps(int size)
 		ps->b.length = 0;
 		ps->a.pos = 0;
 		ps->b.pos = 0;
-		ps->a.left = 0;
-		ps->a.right = size - 1;
-		ps->a.n_ok = 0;
-		ps->a.pivot = 0;
-		ps->b.ipivot = 0;
-		ps->b.left = 0;
-		ps->b.right = 0;
-		ps->b.n_ok = 0;
-		ps->b.pivot = 0;
 		ps->a.arr = (int *) malloc(sizeof(int) * size);
-		ps->a.arr2 = (int *) malloc(sizeof(int) * size);
 		ps->b.arr = (int *) malloc(sizeof(int) * size);
-		ps->b.arr2 = (int *) malloc(sizeof(int) * size);
 		ps->sorted = (int *) malloc(sizeof(int) * size);
-		ps->a.sorted = (int *) malloc(sizeof(int) * size);
-		ps->a.ssmin = 0;
-		ps->b.ssmin = 0;
-		ps->b.sorted = (int *) malloc(sizeof(int) * size);
-		ps->a.sequences = (t_seq **) malloc(sizeof(t_seq *) * (size + 1));
-		ps->b.sequences = (t_seq **) malloc(sizeof(t_seq *) * (size + 1));
-		ps->a.sequences[size] = NULL;
-		ps->b.sequences[size] = NULL;
-		i = -1;
-		while (++i < size)
-		{
-			ps->a.sequences[i] = (t_seq *) malloc(sizeof(t_seq));
-			ps->b.sequences[i] = (t_seq *) malloc(sizeof(t_seq));
-		}
-		ps->a.n_seq = 0;
-		ps->b.n_seq = 0;
 	}
 	return (ps);
 }
@@ -105,33 +77,66 @@ void	remove_ps(t_ps *ps)
 	free(ps);
 }
 
-t_ps	*check_args(int argc, char **argv, int *res)
+char	**get_args(int *argc, char **argv)
 {
+	char 	**args;
 	int		i;
-	int		num;
-	int		flag;
-	t_ps	*ps;
-	t_list	*ptr;
 
-	ps = init_ps(argc - 1);
-	i = 0;
-	flag = (argc > 1);
-	*res = 1;
-	while (flag && ++i < argc)
+	if (*argc == 2)
 	{
-		num = ft_atoi(argv[i]);
-		flag = (num >= 0);
-		if (flag)
-			push(&ps->a, num);
-	}
-	if (!flag)
-	{
-		write(1, "Error\n", 6);
-		*res = 0;
+		args = ft_split(argv[1], ' ');
+		*argc = ft_table_len(args);
 	}
 	else
 	{
-		reverse(ps->a.first, &ps->a.first, &ps->a.last);
+		args = (char **) malloc((*argc) * sizeof(char *));
+		args[*argc - 1] = NULL;
+		*argc -= 1;
+		i = -1;
+		while (++i < *argc)
+				args[i] = argv[i + 1];
+	}
+	return (args);
+}
+
+t_ps	*ft_error(int argc, char **argv, int *error)
+{
+	int		i;
+	int		num;
+	t_ps	*ps;
+	char 	**args;
+
+	*error = 1;
+	ps = NULL;
+	if (argc >= 2)
+	{
+		args = get_args(&argc, argv);
+		i = -1;
+		ps = init_ps(argc);
+		*error = 0;
+		while (!*error && ++i < argc)
+		{
+			num = ft_atoi(args[i], error);
+			if (!*error)
+				push(&ps->a, num);
+		}
+	}
+	return (ps);
+}
+
+t_ps	*check_args(int argc, char **argv, int *error)
+{
+	int		i;
+	t_ps	*ps;
+	t_list	*ptr;
+
+	ps = ft_error(argc, argv, error);
+	if (*error)
+		write(1, "Error\n", 6);
+	else
+	{
+		if (argc > 2)
+			reverse(ps->a.first, &ps->a.first, &ps->a.last);
 		i = -1;
 		ptr = ps->a.first;
 		while (++i < ps->a.length)
@@ -141,12 +146,6 @@ t_ps	*check_args(int argc, char **argv, int *res)
 			ptr = ptr->next;
 		}
 		ft_sort_int_tab(ps->sorted, ps->a.length, 0);
-		i = -1;
-		/*while (++i < ps->a.length)
-		{
-			printf("%d, ",ps->sorted[i]);
-		}*/
 	}
-		
 	return (ps);
 }

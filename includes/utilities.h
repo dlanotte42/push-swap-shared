@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:43:34 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/12 18:08:27 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:51:01 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int		pop(t_stack *stack);
 void	push(t_stack *stack, int value);
 void	reverse(t_list	*node, t_list **first, t_list **last);
 void	print_stacks(t_stack *a, t_stack *b, char *str);
-void	ft_sort_sequences(t_seq **tab, int size);
-
+int		ft_table_len(char **table);
 #endif
