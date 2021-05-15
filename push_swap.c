@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 16:11:02 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/15 17:36:46 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -350,5 +350,5 @@ int		main(int argc, char **argv)
 		chunk_sort(ps, nchunk - 1, chunk_size);
 		//print_stacks(&ps->a, &ps->b, "SORTED?");
 	}
-	remove_ps(ps);	
+	remove_ps(ps);
 }
