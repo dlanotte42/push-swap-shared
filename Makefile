@@ -9,8 +9,10 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRC =	push_swap.c \
-		utilities.c \
+SRC =	push_swap00.c \
+		push_swap01.c \
+		utilities0.c \
+		utilities1.c \
 		utilities2.c \
 		utilities3.c \
 		operation00.c \
@@ -28,13 +30,13 @@ OBJ := ${SRC:.c=.o}
 all: $(NAME)
 	
 $(NAME): $(OBJ)
-	make -C $(LIBFT)
-	cp $(LIBFT)libft.a .
+	@ make -C $(LIBFT)
+	@ cp $(LIBFT)libft.a .
 	$(CC) $(CFLAGS) $(SRC) libft.a -o $(NAME)
 
 clean:
 	make clean -C $(LIBFT)
-	rm -f ${OBJ}
+	rm -f ${OBJ} libft.a
 
 fclean: clean
 	make fclean -C $(LIBFT)

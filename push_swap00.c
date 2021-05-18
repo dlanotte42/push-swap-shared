@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 14:55:49 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:31:56 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/main.h"
 
-int		where_put_in_stack(t_stack *stack, int value, int asc)
+int	where_put_in_stack(t_stack *stack, int value, int asc)
 {
 	int	stack_i;
 
@@ -34,9 +34,43 @@ int		where_put_in_stack(t_stack *stack, int value, int asc)
 	return (stack_i);
 }
 
+static void	make_it_ss(t_ps *ps, int type, int *istack_a)
+{
+	if (type <= 1)
+	{
+		rx(&ps->a, 1);
+		(*istack_a)++;
+	}
+	else
+	{
+		rrx(&ps->a, 1);
+		*istack_a = (ps->a.length + (*istack_a - 1)) % ps->a.length;
+	}
+}
+
+static void	make_it_support(t_ps *ps, int type, int *istack_a, int *istack_b)
+{
+	if (ps->a.length > 0 && *istack_a != ps->a.length - 1)
+		make_it_ss(ps, type, istack_a);
+	if (ps->b.length > 0 && *istack_b != ps->b.length - 1)
+	{
+		if (type == 0 || type == 2)
+		{
+			rx(&ps->b, 1);
+			(*istack_b)++;
+		}
+		else
+		{
+			rrx(&ps->b, 1);
+			*istack_b = (ps->b.length + (*istack_b - 1)) % ps->b.length;
+		}
+	}
+}
+
 void	make_it_easy(t_ps *ps, int type, int istack_a, int istack_b)
 {
-	while ((ps->a.length > 0 && istack_a != ps->a.length - 1) || (ps->b.length > 0 && istack_b != ps->b.length - 1))
+	while ((ps->a.length > 0 && istack_a != ps->a.length - 1) \
+		|| (ps->b.length > 0 && istack_b != ps->b.length - 1))
 	{
 		if (type == 0 && istack_a != ps->a.length - 1 && istack_b != ps->b.length - 1)
 		{
@@ -50,85 +84,11 @@ void	make_it_easy(t_ps *ps, int type, int istack_a, int istack_b)
 			istack_a = (ps->a.length + (istack_a - 1)) % ps->a.length;
 			istack_b = (ps->b.length + (istack_b - 1)) % ps->b.length;
 		}
-		else 
+		else
 		{
-			if (ps->a.length > 0 && istack_a != ps->a.length - 1)
-			{
-				if (type <= 1)
-				{
-					rx(&ps->a, 1);
-					istack_a++;
-				}
-				else {
-					rrx(&ps->a, 1);
-					istack_a = (ps->a.length + (istack_a - 1)) % ps->a.length;
-				}
-			}
-			if (ps->b.length > 0 && istack_b != ps->b.length - 1)
-			{
-				if (type == 0 ||  type == 2)
-				{
-					rx(&ps->b, 1);
-					istack_b++;
-				}
-				else
-				{
-					rrx(&ps->b, 1);
-					istack_b = (ps->b.length + (istack_b - 1)) % ps->b.length;
-				}
-			}
+			make_it_support(ps, type, &istack_a, &istack_b);
 		}
 	}
-}
-
-int get_min_move(t_ps *ps, int *type, int from, int flag)
-{
-	int		move;
-	int		to;
-	t_stack	*first;
-	t_stack *second;
-	//ra-rb, ra-rrb, rra-rb, rra-rrb
-	int	nmoves[4];
-
-	first = &ps->a;
-	second = &ps->b;
-	//ra-rb
-	if (flag)
-	{
-		first = &ps->b;
-		second = &ps->a;
-	}
-	to = where_put_in_stack(second, first->arr[from], flag);
-	nmoves[0] = nmove_totop(first, from, 1);
-	move = nmove_totop(second, to, 1);
-	if (move > nmoves[0])
-		nmoves[0] = move;
-	//rra-rrb
-	nmoves[3] = nmove_totop(first, from, 0);
-	move = nmove_totop(second, to, 0);
-	if (move > nmoves[3])
-		nmoves[3] = move;
-	//ra-rrb
-	nmoves[1] = nmove_totop(first, from, 1) + nmove_totop(second, to, 0);
-	//rra-rb
-	nmoves[2] = nmove_totop(first, from, 0) + nmove_totop(second, to, 1);
-	*type = 0;
-	if (nmoves[1] < nmoves[0])
-	{
-		*type = 1;
-		nmoves[0] = nmoves[1];
-	}
-	if (nmoves[2] < nmoves[0])
-	{
-		*type = 2;
-		nmoves[0] = nmoves[2];
-	}
-	if (nmoves[3] < nmoves[0])
-	{
-		*type = 3;
-		nmoves[0] = nmoves[3];
-	}
-	return (nmoves[0]);	
 }
 
 int 	getnchunk(t_ps *ps, int value, int chunk_size)

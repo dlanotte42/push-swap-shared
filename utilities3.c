@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   utilities3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 14:42:16 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 14:45:53 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:36:24 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/main.h"
 
-int		nmove_totop(t_stack *stack, int stack_i, int flag)
+// if (flag == 0) {rotate} else reverse rotate
+int	nmove_totop(t_stack *stack, int stack_i, int flag)
 {
 	if (stack->length == 0)
 		return (0);
-	//rotate
 	if (flag)
 		return (stack->length - stack_i - 1);
-	//reverse rotate
 	return (stack_i + 1);
 }
 
@@ -42,7 +41,7 @@ void	move_to_top(t_stack *stack, int stack_i)
 	}
 }
 
-int		find_min_greater(t_stack *stack, int value)
+int	find_min_greater(t_stack *stack, int value)
 {
 	int	i;
 	int	imin;
@@ -62,7 +61,7 @@ int		find_min_greater(t_stack *stack, int value)
 	return (imin);
 }
 
-int		find_max_minor(t_stack *stack, int value)
+int	find_max_minor(t_stack *stack, int value)
 {
 	int	i;
 	int	index;

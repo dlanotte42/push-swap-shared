@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:12:42 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 14:56:05 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:36:59 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	reverse(t_list	*node, t_list **first, t_list **last)
 	{
 		tmp = *first;
 		*first = node->next;
-		*last = tmp;		
+		*last = tmp;
 	}
 	node->next->next = node;
 	node->next = NULL;
 }
 
-int		find_min(t_stack *stack)
+int	find_min(t_stack *stack)
 {
 	int	i;
 	int	imin;
@@ -55,7 +55,7 @@ int		find_min(t_stack *stack)
 	return (imin);
 }
 
-int		find_max(t_stack *stack)
+int	find_max(t_stack *stack)
 {
 	int	i;
 	int	imax;
@@ -114,4 +114,3 @@ int	ft_table_len(char **table)
 	}
 	printf("\n");
 }*/
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:43:34 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 14:56:38 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:39:57 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,7 @@ int		nmove_totop(t_stack *stack, int stack_i, int flag);
 void	move_to_top(t_stack *stack, int stack_i);
 int		find_min(t_stack *stack);
 int		find_max(t_stack *stack);
+t_ps	*init_ps(int size);
+char	**get_args(int *argc, char **argv);
+
 #endif

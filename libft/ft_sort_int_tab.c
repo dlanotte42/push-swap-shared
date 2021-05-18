@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 09:59:25 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/07 18:12:11 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 16:30:07 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
-	int c;
+	int	c;
 
 	c = *a;
 	*a = *b;
@@ -21,8 +21,8 @@ void	ft_swap(int *a, int *b)
 
 void	ft_sort_int_tab(int *tab, int size, int order)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int	flag;
 
 	if (size == 1)
