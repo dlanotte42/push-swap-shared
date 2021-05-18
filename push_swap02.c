@@ -6,7 +6,7 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 18:37:12 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 20:09:07 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void 	sort2n(t_stack *stack)
 
 	i = find_min(stack);
 	if (i == 0)
-		sx(stack);
+		sx(stack, 1);
 }
 
 void 	sort3n(t_stack *stack)
@@ -39,7 +39,7 @@ void 	sort3n(t_stack *stack)
 	}
 	else
 	{
-		sx(stack);
+		sx(stack, 1);
 		i = find_min(stack);
 		if (i == 1)
 			rx(stack, 1);
@@ -62,16 +62,16 @@ void	sort10loop(t_stack *first, t_stack *second, int size)
 	else
 	{
 		move_to_top(first, find_min(first));
-		px(second, first);
+		px(second, first, 1);
 		if (size > 4)
 		{
 			move_to_top(first, find_min(first));
-			px(second, first);
+			px(second, first, 1);
 		}
 		sort10loop(first, second, first->length);
-		px(first, second);
+		px(first, second, 1);
 		if (size > 4)
-			px(first, second);
+			px(first, second, 1);
 	}
 }
 
@@ -97,25 +97,4 @@ void 	set_limits(t_ps *ps, int *nchunk, int *chunk_size)
 	}
 	*chunk_size = ps->size / *nchunk;
 	ps->rest = ps->size % *chunk_size;
-}
-
-int	main(int argc, char **argv)
-{
-	int		error;
-	t_ps	*ps;
-	int		nchunk;
-	int		chunk_size;
-
-	ps = check_args(argc, argv, &error);
-	if (!error)
-	{
-		if (ps->size <= 10)
-			sort10loop(&ps->a, &ps->b, ps->size);
-		else
-		{
-			set_limits(ps, &nchunk, &chunk_size);
-			chunk_sort(ps, nchunk - 1, chunk_size);
-		}
-	}
-	remove_ps(ps);
 }

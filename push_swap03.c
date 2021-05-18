@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap02.c                                      :+:      :+:    :+:   */
+/*   push_swap03.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 17:59:08 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 20:09:52 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	chunk_sort(t_ps *ps, int nchunk, int chunk_size)
 		index = find_max(&ps->b);
 		move_to_top(&ps->b, index);
 		while (ps->b.length > 0)
-			px(&ps->a, &ps->b);
+			px(&ps->a, &ps->b, 1);
 		return ;
 	}
 	pchunk(ps, nchunk, chunk_size);

@@ -19,12 +19,9 @@ SRC =	push_swap00.c \
 		utilities3.c \
 		operation00.c \
 		operation01.c \
-
-#SRCG = 	$(wildcard $(GNL)*.c)
+		main.c
 
 OBJ := ${SRC:.c=.o}
-
-#OBJG := $(SRCG:.c=.o)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -40,7 +37,7 @@ $(NAME): $(OBJ)
 clean:
 	make clean -C $(LIBFT)
 	rm -f ${OBJ} libft.a
-
+	rm -f $(LIBFT)libft.a
 fclean: clean
 	make fclean -C $(LIBFT)
 	rm -f $(NAME) 

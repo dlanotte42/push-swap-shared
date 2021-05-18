@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ipntr.c                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 10:03:43 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/04/14 16:57:05 by gcarbone         ###   ########.fr       */
+/*   Created: 2021/01/18 18:23:28 by gcarbone          #+#    #+#             */
+/*   Updated: 2021/04/20 17:54:03 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-void	ft_ipntr(int *a, int *b, int c, int d)
-{
-	*a = c;
-	*b = d;
-}
+int		get_next_line(int fd, char **line);
+char	*ft_strjoin(char const *s1, char const *s2);
+#endif

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   main_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/13 10:50:04 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/01/13 10:50:06 by gcarbone         ###   ########.fr       */
+/*   Created: 2021/05/18 19:02:18 by dlanotte          #+#    #+#             */
+/*   Updated: 2021/05/18 20:34:48 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
-{
-	if (c >= 65 && c <= 90)
-		c = c + 32;
-	return (c);
-}
+#ifndef MAIN_BONUS_H
+# define MAIN_BONUS_H
+
+# include "../../includes/main.h"
+# include "get_next_line.h"
+
+#endif

@@ -6,13 +6,13 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:41:54 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 17:50:05 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 20:07:15 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/main.h"
 
-void	sx(t_stack	*stack)
+void	sx(t_stack	*stack, int flag)
 {
 	t_list	*first;
 	t_list	*second;
@@ -34,13 +34,13 @@ void	sx(t_stack	*stack)
 		if (tmp == 0 || tmp == 1)
 			stack->pos = stack->length - 1 - (1 - tmp);
 	}
-	if (stack->sname)
+	if (flag && stack->sname)
 		ft_putstr_fd("sb\n", 1);
-	else
+	else if (flag)
 		ft_putstr_fd("sa\n", 1);
 }
 
-void	px(t_stack *one, t_stack *two)
+void	px(t_stack *one, t_stack *two, int flag)
 {
 	int	value;
 
@@ -48,9 +48,9 @@ void	px(t_stack *one, t_stack *two)
 		return ;
 	value = pop(two);
 	push(one, value);
-	if (one->sname)
+	if (flag && one->sname)
 		ft_putstr_fd("pb\n", 1);
-	else
+	else if (flag)
 		ft_putstr_fd("pa\n", 1);
 }
 

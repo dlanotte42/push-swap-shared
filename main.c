@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 16:40:35 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 20:04:04 by dlanotte         ###   ########.fr       */
+/*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
+/*   Updated: 2021/05/18 19:13:16 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATION_H
-# define OPERATION_H
-# include "main.h"
+#include "includes/main.h"
 
-void	sx(t_stack	*stack, int flag);
-void	rx(t_stack	*stack, int flag);
-void	rrx(t_stack	*stack, int flag);
-void	px(t_stack	*a, t_stack	*b, int flag);
-void	ss(t_stack	*a, t_stack	*b, int flag);
-void	rr(t_stack	*a, t_stack	*b, int flag);
-void	rrr(t_stack *a, t_stack *b, int flag);
+int	main(int argc, char **argv)
+{
+	int		error;
+	t_ps	*ps;
+	int		nchunk;
+	int		chunk_size;
 
-#endif
+	ps = check_args(argc, argv, &error);
+	if (!error)
+	{
+		if (ps->size <= 10)
+			sort10loop(&ps->a, &ps->b, ps->size);
+		else
+		{
+			set_limits(ps, &nchunk, &chunk_size);
+			chunk_sort(ps, nchunk - 1, chunk_size);
+		}
+	}
+	remove_ps(ps);
+}

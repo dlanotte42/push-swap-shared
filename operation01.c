@@ -3,31 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   operation01.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 17:11:50 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 15:54:25 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 20:06:09 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/main.h"
 
-void	ss(t_stack	*a, t_stack	*b)
+void	ss(t_stack	*a, t_stack	*b, int flag)
 {
-	sx(a);
-	sx(b);
+	sx(a, 0);
+	sx(b, 0);
+	if (flag)
+		ft_putstr_fd("ss\n", 1);
 }
 
-void	rr(t_stack	*a, t_stack	*b)
+void	rr(t_stack	*a, t_stack	*b, int flag)
 {
 	rx(a, 0);
 	rx(b, 0);
-	ft_putstr_fd("rr\n", 1);
+	if (flag)
+		ft_putstr_fd("rr\n", 1);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b, int flag)
 {
 	rrx(a, 0);
 	rrx(b, 0);
-	ft_putstr_fd("rrr\n", 1);
+	if (flag)
+		ft_putstr_fd("rrr\n", 1);
 }

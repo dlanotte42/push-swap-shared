@@ -21,8 +21,6 @@ SRC = 	ft_memset.c \
 		ft_isalnum.c \
 		ft_isascii.c \
 		ft_isprint.c \
-		ft_toupper.c \
-		ft_tolower.c \
 		ft_calloc.c \
 		ft_strdup.c \
 		ft_substr.c \
@@ -30,7 +28,6 @@ SRC = 	ft_memset.c \
 		ft_strtrim.c \
 		ft_split.c \
 		ft_itoa.c \
-		ft_strmapi.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
@@ -40,8 +37,6 @@ SRC = 	ft_memset.c \
 		ft_joinf.c \
 		ft_strarrlen.c \
 		ft_replace.c \
-		ft_dpntr.c \
-		ft_ipntr.c \
 		ft_sort_int_tab.c \
 		
 CC = gcc

@@ -6,7 +6,7 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 18:02:04 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 20:09:09 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	make_it_easy(t_ps *ps, int type, int istack_a, int istack_b)
 		if (type == 0 && istack_a != ps->a.length - 1 \
 			&& istack_b != ps->b.length - 1)
 		{
-			rr(&ps->a, &ps->b);
+			rr(&ps->a, &ps->b, 1);
 			istack_a++;
 			istack_b++;
 		}
 		else if (type == 3 && istack_a != ps->a.length - 1 \
 			&& istack_b != ps->b.length - 1)
 		{
-			rrr(&ps->a, &ps->b);
+			rrr(&ps->a, &ps->b, 1);
 			istack_a = (ps->a.length + (istack_a - 1)) % ps->a.length;
 			istack_b = (ps->b.length + (istack_b - 1)) % ps->b.length;
 		}
@@ -77,7 +77,7 @@ void	put_in_a(t_ps *ps, int istack_b, int type)
 
 	istack_a = where_put_in_stack(&ps->a, ps->b.arr[istack_b], 1);
 	make_it_easy(ps, type, istack_a, istack_b);
-	px(&ps->a, &ps->b);
+	px(&ps->a, &ps->b, 1);
 }
 
 void	put_in_b(t_ps *ps, int istack_a, int type)
@@ -86,5 +86,5 @@ void	put_in_b(t_ps *ps, int istack_a, int type)
 
 	istack_b = where_put_in_stack(&ps->b, ps->a.arr[istack_a], 0);
 	make_it_easy(ps, type, istack_a, istack_b);
-	px(&ps->b, &ps->a);
+	px(&ps->b, &ps->a, 1);
 }
