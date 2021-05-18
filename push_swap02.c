@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap03.c                                      :+:      :+:    :+:   */
+/*   push_swap02.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 17:58:58 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:37:12 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,12 @@ void	sort10loop(t_stack *first, t_stack *second, int size)
 			px(first, second);
 	}
 }
+
+/* 
+	11 -> 500 numbers 
+	5  -> 100 numbers
+	0.015 = *((11-5)/400) 
+*/
 
 void 	set_limits(t_ps *ps, int *nchunk, int *chunk_size)
 {
