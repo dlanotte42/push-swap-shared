@@ -6,7 +6,7 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 18:15:58 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 20:37:06 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 20:44:19 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,5 @@ void			ft_putnbr_fd(int n, int fd);
 int				ft_strindex(char *s, char c);
 char			*ft_joinf(char *s1, char *s2, int freem);
 size_t			ft_strarrlen(char **s);
-char			*ft_fill(int n, char c);
-char			*ft_replace(const char *stack, const char *needle, char *repl);
-void			ft_dpntr(double *a, double *b, double c, double d);
-void			ft_ipntr(int *a, int *b, int c, int d);
 void			ft_sort_int_tab(int *tab, int size, int order);
 #endif

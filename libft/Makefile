@@ -33,10 +33,8 @@ SRC = 	ft_memset.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		ft_strindex.c \
-		ft_fill.c \
 		ft_joinf.c \
 		ft_strarrlen.c \
-		ft_replace.c \
 		ft_sort_int_tab.c \
 		
 CC = gcc
