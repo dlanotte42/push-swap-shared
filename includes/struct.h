@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:45:09 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 15:48:06 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/17 18:18:18 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_ps
 	int				size;
 	t_stack			a;
 	t_stack			b;
+	int				rest;
 	int				*sorted;
 }				t_ps;
 

@@ -12,6 +12,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 SRC =	push_swap.c \
 		utilities.c \
 		utilities2.c \
+		utilities3.c \
 		operation00.c \
 		operation01.c \
 
@@ -31,10 +32,6 @@ $(NAME): $(OBJ)
 	cp $(LIBFT)libft.a .
 	$(CC) $(CFLAGS) $(SRC) libft.a -o $(NAME)
 
-debug: $(OBJ)
-	make -C $(LIBFT)
-	cp $(LIBFT)libft.a .
-	$(CC) -g $(CFLAGS) $(SRC) libft.a -o $(NAME)
 clean:
 	make clean -C $(LIBFT)
 	rm -f ${OBJ}

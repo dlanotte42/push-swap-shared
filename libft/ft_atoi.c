@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:55:45 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 12:19:36 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/17 19:59:50 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,18 @@ static int	isspace_(char c)
 	 || c == '\f' || c == '\r' || c == ' ');
 }
 
-static int	check_result(unsigned long int result, int sign)
+static int	check_result(unsigned long int result, int sign, int *error)
 {
-	if (sign == -1 && result >= ((unsigned long)LONG_MAX + 1))
+	if (sign == -1 && result > ((unsigned long)2147483648))
+	{
+		*error = 1;
 		return (0);
-	else if (result > LONG_MAX)
+	}
+	else if (sign == 1 && result > 2147483647)
+	{
+		*error = 1;
 		return (0);
+	}
 	return ((int)result * sign);
 }
 
@@ -49,5 +55,5 @@ int	ft_atoi(const char *str, int *error)
 		i++;
 	}
 	*error = (str[i] != '\0');
-	return (check_result(result, sign));
+	return (check_result(result, sign, error));
 }

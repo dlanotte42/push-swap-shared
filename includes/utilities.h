@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:43:34 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 15:28:50 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:56:38 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,10 @@ void	reverse(t_list	*node, t_list **first, t_list **last);
 void	print_stacks(t_stack *a, t_stack *b, char *str);
 int		ft_table_len(char **table);
 int		fval_index(int *arr, int len, int val);
+int		find_min_greater(t_stack *stack, int value);
+int		find_max_minor(t_stack *stack, int value);
+int		nmove_totop(t_stack *stack, int stack_i, int flag);
+void	move_to_top(t_stack *stack, int stack_i);
+int		find_min(t_stack *stack);
+int		find_max(t_stack *stack);
 #endif

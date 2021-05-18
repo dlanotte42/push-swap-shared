@@ -77,9 +77,6 @@ void	remove_ps(t_ps *ps)
 		node = ps->b.first;
 	}
 	free(ps);
-	free(ps->a.arr);
-	free(ps->b.arr);
-	free(ps->sorted);
 }
 
 char	**get_args(int *argc, char **argv)

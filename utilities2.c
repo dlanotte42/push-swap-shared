@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:12:42 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/15 15:24:32 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:56:05 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,49 @@ void	reverse(t_list	*node, t_list **first, t_list **last)
 	node->next = NULL;
 }
 
-void	print_stacks(t_stack *a, t_stack *b, char *str)
+int		find_min(t_stack *stack)
+{
+	int	i;
+	int	imin;
+
+	i = -1;
+	imin = 0;
+	while (++i < stack->length)
+	{
+		if (stack->arr[i] < stack->arr[imin])
+			imin = i;
+	}
+	return (imin);
+}
+
+int		find_max(t_stack *stack)
+{
+	int	i;
+	int	imax;
+
+	i = -1;
+	imax = 0;
+	while (++i < stack->length)
+	{
+		if (stack->arr[i] > stack->arr[imax])
+			imax = i;
+	}
+	return (imax);
+}
+
+int	ft_table_len(char **table)
+{
+	int	i;
+
+	if (!table)
+		return (0);
+	i = 0;
+	while (table[i])
+		i++;
+	return (i);
+}
+
+/*void	print_stacks(t_stack *a, t_stack *b, char *str)
 {
 	t_list	*na;
 	t_list	*nb;
@@ -71,16 +113,5 @@ void	print_stacks(t_stack *a, t_stack *b, char *str)
 		printf("\n-------------------------------------------------\n");		
 	}
 	printf("\n");
-}
+}*/
 
-int	ft_table_len(char **table)
-{
-	int	i;
-
-	if (!table)
-		return (0);
-	i = 0;
-	while (table[i])
-		i++;
-	return (i);
-}

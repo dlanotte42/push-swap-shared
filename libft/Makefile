@@ -46,7 +46,7 @@ SRC = 	ft_memset.c \
 		
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 
 OBJ := ${SRC:.c=.o}
 
