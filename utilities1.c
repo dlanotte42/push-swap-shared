@@ -6,7 +6,7 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:30:48 by dlanotte          #+#    #+#             */
-/*   Updated: 2021/05/18 16:38:36 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:27:16 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	remove_ps(t_ps *ps)
 {
 	t_list	*node;
 
+	if (ps == NULL)
+		return ;
 	node = ps->a.first;
 	while (node != NULL)
 	{
@@ -88,6 +90,9 @@ void	remove_ps(t_ps *ps)
 		free(node);
 		node = ps->b.first;
 	}
+	free(ps->a.arr);
+	free(ps->b.arr);
+	free(ps->sorted);
 	free(ps);
 }
 
@@ -108,7 +113,7 @@ char	**get_args(int *argc, char **argv)
 		*argc -= 1;
 		i = -1;
 		while (++i < *argc)
-			args[i] = argv[i + 1];
+			args[i] = ft_strdup(argv[i + 1]);
 	}
 	return (args);
 }

@@ -6,7 +6,7 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:43:34 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 16:39:57 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:23:04 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int		find_min(t_stack *stack);
 int		find_max(t_stack *stack);
 t_ps	*init_ps(int size);
 char	**get_args(int *argc, char **argv);
+void	free_table(char **table);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:30:48 by dlanotte          #+#    #+#             */
-/*   Updated: 2021/05/18 16:40:01 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:26:16 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_ps	*ft_error(int argc, char **argv, int *error)
 			if (!*error)
 				push(&ps->a, num);
 		}
+		free_table(args);
 	}
 	return (ps);
 }

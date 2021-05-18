@@ -6,7 +6,7 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 11:31:32 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 17:20:07 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:59:09 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,76 @@ static int	get_min_support(int *type, int nmoves[4])
 		nmoves[0] = nmoves[3];
 	}
 	return (nmoves[0]);
+}
+
+int 	getnchunk(t_ps *ps, int value, int chunk_size)
+{
+	int	index;
+	int	flag;
+	int	base;
+	int	i;
+
+	flag = 0;
+	index = fval_index(ps->sorted, ps->size, value);
+	if (ps->rest)
+	{
+		flag = 1;
+		base = (chunk_size * ps->rest) + ps->rest;
+		i = (index >= base) * (ps->rest);
+		if (i)
+			return (i + ((index - base) / chunk_size));
+	}
+	return (index / (chunk_size + flag));
+}
+
+int	where_put_in_stack(t_stack *stack, int value, int asc)
+{
+	int	stack_i;
+
+	stack_i = stack->length - 1;
+	if (stack->length == 0)
+		return (0);
+	if (asc)
+	{
+		stack_i = find_min_greater(stack, value);
+		if (stack_i == -1)
+			stack_i = find_min(stack);
+	}
+	else
+	{
+		stack_i = find_max_minor(stack, value);
+		if (stack_i == -1)
+			stack_i = find_max(stack);
+	}
+	return (stack_i);
+}
+
+int	best_choice(t_ps *ps, int nchunk, int chunk_size, int *index)
+{
+	int	moves1;
+	int	moves2;
+	int	ichunk;
+	int	type;
+	int	index2;
+
+	if (*index < 0)
+		return (-1);
+	index2 = *index - 1;
+	moves2 = best_choice(ps, nchunk, chunk_size, &index2);
+	ichunk = getnchunk(ps, ps->a.arr[*index], chunk_size);
+	moves1 = moves2;
+	if (ichunk == nchunk)
+	{
+		moves1 = get_min_move(ps, &type, *index, 0);
+		if (index2 == -1)
+			moves2 = moves1 + 1;
+	}
+	if (moves2 <= moves1)
+	{
+		*index = index2;
+		return (moves2);
+	}
+	return (moves1);
 }
 
 //0 - ra-rb, 1 - ra-rrb, 2 - rra-rb, 3 - rra-rrb

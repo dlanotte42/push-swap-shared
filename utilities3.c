@@ -6,11 +6,24 @@
 /*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 14:42:16 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 16:36:24 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/18 18:22:22 by dlanotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/main.h"
+
+void	free_table(char **table)
+{
+	int	i;
+
+	if (table)
+	{
+		i = ft_table_len(table);
+		while (--i >= 0)
+			free(table[i]);
+		free(table);
+	}
+}
 
 // if (flag == 0) {rotate} else reverse rotate
 int	nmove_totop(t_stack *stack, int stack_i, int flag)
