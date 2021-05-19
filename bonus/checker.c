@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 19:02:05 by dlanotte          #+#    #+#             */
-/*   Updated: 2021/05/18 20:30:50 by dlanotte         ###   ########.fr       */
+/*   Created: 2021/05/19 11:31:27 by gcarbone          #+#    #+#             */
+/*   Updated: 2021/05/19 12:28:52 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static int	ft_parse_input(t_ps *ps)
 	while (flag > 0)
 	{
 		flag = get_next_line(0, line);
-		if (flag >= 0)
+		if (flag > 0)
 		{
 			index_op = ft_check_operations(operations, 0, *line);
 			if (index_op > -1)
@@ -91,7 +91,7 @@ static int	ft_parse_input(t_ps *ps)
 	}
 	free_table(operations);
 	free(line);
-	return (-1);
+	return (flag);
 }
 
 int	main(int argc, char **argv)
@@ -104,9 +104,10 @@ int	main(int argc, char **argv)
 	if (error)
 		return (0);
 	flag = ft_parse_input(ps);
-	if (flag == -2)
-		ft_putstr_fd("Error\n", 1);
-	ft_is_sorted(ps);
+	if (flag < 0)
+		ft_putstr_fd("Error\n", 2);
+	else
+		ft_is_sorted(ps);
 	remove_ps(ps);
 	return (0);
 }

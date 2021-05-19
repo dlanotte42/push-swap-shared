@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 16:12:42 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/18 16:36:59 by dlanotte         ###   ########.fr       */
+/*   Created: 2021/05/19 11:37:56 by gcarbone          #+#    #+#             */
+/*   Updated: 2021/05/19 12:41:58 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,36 +81,3 @@ int	ft_table_len(char **table)
 		i++;
 	return (i);
 }
-
-/*void	print_stacks(t_stack *a, t_stack *b, char *str)
-{
-	t_list	*na;
-	t_list	*nb;
-	int		i;
-
-	printf("\t[STACK A]\t\t[STACK B]\t\t%s\n", str);
-	i = a->length;
-	na = a->first;
-	nb = b->first;
-	while (na != NULL || nb != NULL)
-	{
-		printf("%d|", --i);
-		if (na != NULL)
-		{
-			printf("\t%d",na->val);
-			na = na->next;
-		}
-		else
-			printf("\t ");
-		printf("\t\t|");
-		if (nb != NULL)
-		{
-			printf("\t%d",nb->val);
-			nb = nb->next;
-		}
-		else
-			printf("\t ");
-		printf("\n-------------------------------------------------\n");		
-	}
-	printf("\n");
-}*/

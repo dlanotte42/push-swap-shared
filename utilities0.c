@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 16:30:48 by dlanotte          #+#    #+#             */
-/*   Updated: 2021/05/19 11:19:57 by gcarbone         ###   ########.fr       */
+/*   Created: 2021/05/19 11:39:05 by gcarbone          #+#    #+#             */
+/*   Updated: 2021/05/19 12:29:13 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ t_ps	*check_args(int argc, char **argv, int *error)
 
 	ps = ft_error(argc, argv, error);
 	if (*error)
-		ft_putstr_fd("Error\n", 2);
+	{
+		if (argc > 1)
+			ft_putstr_fd("Error\n", 2);
+	}
 	else
 	{
 		if (ps->a.length > 1)
