@@ -3,7 +3,7 @@ NAME = push_swap
 
 LIBFT =	libft/
 
-#GNL =	get_next_line/
+CHECKER =	bonus/
 
 CC = gcc
 
@@ -31,6 +31,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ make -C $(LIBFT)
 	@ cp $(LIBFT)libft.a .
+	@ make -C $(CHECKER)
+	@ cp $(CHECKER)checker .
 	$(CC) $(CFLAGS) $(SRC) libft.a -o $(NAME)
 	make clean
 
@@ -38,8 +40,10 @@ clean:
 	make clean -C $(LIBFT)
 	rm -f ${OBJ} libft.a
 	rm -f $(LIBFT)libft.a
+	make clean -C $(CHECKER)
 fclean: clean
 	make fclean -C $(LIBFT)
-	rm -f $(NAME) 
-
+	make fclean -C $(CHECKER)
+	rm -f $(NAME)
+	rm -f checker
 re: fclean all

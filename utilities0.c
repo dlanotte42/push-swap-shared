@@ -3,14 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   utilities0.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:30:48 by dlanotte          #+#    #+#             */
-/*   Updated: 2021/05/18 18:26:16 by dlanotte         ###   ########.fr       */
+/*   Updated: 2021/05/19 10:57:30 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/main.h"
+
+int	ft_is_yet_sorted(t_ps *ps)
+{
+	int	istack;
+	int	j;
+
+	if (ps->a.length != ps->size)
+		return (0);
+	istack = find_min(&ps->a);
+	j = 0;
+	while (j < ps->size &&  ps->a.arr[istack] == ps->sorted[ps->size - 1 - j])
+	{
+		istack = (ps->a.length + istack - 1) % ps->a.length;
+		j++;
+	}
+	if (j < ps->size)
+		return (0);
+	istack = find_min(&ps->a);
+	move_to_top(&ps->a, istack);
+	return (1);
+}
 
 t_ps	*ft_error(int argc, char **argv, int *error)
 {
