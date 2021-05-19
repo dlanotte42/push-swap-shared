@@ -6,7 +6,7 @@
 /*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:30:48 by dlanotte          #+#    #+#             */
-/*   Updated: 2021/05/19 10:57:30 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/19 11:19:57 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_is_yet_sorted(t_ps *ps)
 		return (0);
 	istack = find_min(&ps->a);
 	j = 0;
-	while (j < ps->size &&  ps->a.arr[istack] == ps->sorted[ps->size - 1 - j])
+	while (j < ps->size && ps->a.arr[istack] == ps->sorted[ps->size - 1 - j])
 	{
 		istack = (ps->a.length + istack - 1) % ps->a.length;
 		j++;
