@@ -7,7 +7,7 @@ CHECKER =	bonus/
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SRC =	push_swap00.c \
 		push_swap01.c \
@@ -34,7 +34,6 @@ $(NAME): $(OBJ)
 	@ make -C $(CHECKER)
 	@ cp $(CHECKER)checker .
 	$(CC) $(CFLAGS) $(SRC) libft.a -o $(NAME)
-	make clean
 
 clean:
 	make clean -C $(LIBFT)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fd-agnes <fd-agnes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 11:33:19 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/19 11:33:20 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/21 16:39:09 by fd-agnes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ int	ft_atoi(const char *str, int *error)
 	int					i;
 	int					sign;
 	unsigned long int	result;
+	int					counter;
 
 	i = 0;
 	sign = 1;
 	result = 0;
+	counter = 0;
 	while (str[i] != '\0' && isspace_(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -53,7 +55,8 @@ int	ft_atoi(const char *str, int *error)
 	{
 		result = (result * 10) + (str[i] - '0');
 		i++;
+		counter++;
 	}
-	*error = (str[i] != '\0');
+	*error = (str[i] != '\0' || counter == 0);
 	return (check_result(result, sign, error));
 }

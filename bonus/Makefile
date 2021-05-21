@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+         #
+#    By: fd-agnes <fd-agnes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 11:31:12 by gcarbone          #+#    #+#              #
-#    Updated: 2021/05/19 11:31:16 by gcarbone         ###   ########.fr        #
+#    Updated: 2021/05/21 16:40:50 by fd-agnes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ $(NAME): $(OBJ)
 	@ make -C $(LIBFT)
 	@ cp $(LIBFT)libft.a .
 	$(CC) $(CFLAGS) $(SRC) libft.a -o $(NAME)
-	make clean
 
 clean:
 	make clean -C $(LIBFT)
