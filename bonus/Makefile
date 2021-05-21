@@ -6,7 +6,7 @@
 #    By: fd-agnes <fd-agnes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 11:31:12 by gcarbone          #+#    #+#              #
-#    Updated: 2021/05/21 16:40:50 by fd-agnes         ###   ########.fr        #
+#    Updated: 2021/05/21 16:54:00 by fd-agnes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ GNL =	get_next_line/get_next_line_utils.c \
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror 
 
 SRC =	../push_swap00.c \
 		../push_swap01.c \

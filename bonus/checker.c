@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fd-agnes <fd-agnes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 11:31:27 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/19 12:28:52 by gcarbone         ###   ########.fr       */
+/*   Updated: 2021/05/21 16:53:26 by fd-agnes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ int	main(int argc, char **argv)
 	t_ps	*ps;
 	int		flag;
 
+	if (argc == 2 && !argv[1][0])
+		return (0);
 	ps = check_args(argc, argv, &error);
 	if (error)
 		return (0);
