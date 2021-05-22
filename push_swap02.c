@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap02.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fd-agnes <fd-agnes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gcarbone <gcarbone@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 11:38:41 by gcarbone          #+#    #+#             */
-/*   Updated: 2021/05/21 16:36:19 by fd-agnes         ###   ########.fr       */
+/*   Updated: 2021/05/22 12:34:39 by gcarbone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ void 	set_limits(t_ps *ps, int *nchunk, int *chunk_size)
 	else if (ps->size < 50)
 		*nchunk = 2;
 	else if (ps->size == 100)
-		*nchunk = 5;
+		*nchunk = 1;
 	else if (ps->size == 500)
-		*nchunk = 11;
+		*nchunk = 1;
 	else
 	{
 		*nchunk = 5 + (0.015 * (ps->size - 100));
